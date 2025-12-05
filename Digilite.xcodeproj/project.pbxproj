@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CEC5027A2EE36F2900FDC015 /* SwiftUIExtras in Frameworks */ = {isa = PBXBuildFile; productRef = CEC502792EE36F2900FDC015 /* SwiftUIExtras */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		22F1B3F22EE3529600756A66 /* Digilite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digilite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC5027A2EE36F2900FDC015 /* SwiftUIExtras in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Digilite;
 			packageProductDependencies = (
+				CEC502792EE36F2900FDC015 /* SwiftUIExtras */,
 			);
 			productName = Digilite;
 			productReference = 22F1B3F22EE3529600756A66 /* Digilite.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 22F1B3E92EE3529600756A66;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CEC502782EE36F2900FDC015 /* XCRemoteSwiftPackageReference "SwiftUIExtras" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 22F1B3F32EE3529600756A66 /* Products */;
 			projectDirPath = "";
@@ -320,6 +329,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEC502782EE36F2900FDC015 /* XCRemoteSwiftPackageReference "SwiftUIExtras" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mateusrodriguesxyz/SwiftUIExtras";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEC502792EE36F2900FDC015 /* SwiftUIExtras */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC502782EE36F2900FDC015 /* XCRemoteSwiftPackageReference "SwiftUIExtras" */;
+			productName = SwiftUIExtras;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22F1B3EA2EE3529600756A66 /* Project object */;
 }
