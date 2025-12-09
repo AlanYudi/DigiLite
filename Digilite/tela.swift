@@ -120,31 +120,6 @@ struct GraficoTempoUso: View {
 struct HomeView: View { //criando a view HomeView que irá englobar as três instâncias de NavigationCard.
     var body: some View {
         //definindo o corpo da view, ou seja, como ela será exibida na tela.
-        
-      //  VStack{
-            
-            
-//            struct GraficoTempoUso: View {
-//                var body: some View {
-//                    Chart(dadosTempoUso) { item in
-//                        BarMark(
-//                            x: .value("App", item.app),
-//                            y: .value("Horas de Uso", item.horas)
-//                        )
-//                        .foregroundStyle(.blue.opacity(0.8))
-//                    }
-//                    .chartYAxis {
-//                        AxisMarks(position: .leading)
-//                    }
-//                    .frame(height: 300)
-//                    .padding()
-//                }
-//            }
-//                    
-//                
-//            #Preview {
-//                GraficoTempoUso()
-//            }
 
             
             
@@ -187,10 +162,12 @@ struct HomeView: View { //criando a view HomeView que irá englobar as três ins
 //preview 2 EVIDENCIA !!!!
 struct HomeView_Previews: PreviewProvider { //estrutura de visualização prévia para a HomeView.
     static var previews: some View { //definindo o corpo da visualização prévia, ou seja, como iremos vê-la.
-        VStack{
-            GraficoTempoUso()
-            HomeView()
-            //criando uma instância da HomeView para visualização prévia.
+        NavigationStack{
+            VStack{
+                GraficoTempoUso()
+                HomeView()
+                //criando uma instância da HomeView para visualização prévia.
+            }
         }
     }
  
