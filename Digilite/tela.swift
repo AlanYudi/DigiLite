@@ -2,6 +2,8 @@
 //Data: 06/12/2025 /
 //Objetivo: Criando tela swiftUI com cards de navegação reutilizáveis com parâmetros moldáveis/
 
+import Charts
+
 
 import SwiftUI //importando o framework SwiftUI para criar interfaces de usuário declarativas.
 
@@ -83,41 +85,101 @@ struct NavigationCard<Destination: View>: View { //Criando uma view de navegaç�
 
 
 // Passo 3: Criar uma VIEW que irá englobar as três instâncias de NavigationCard criadas, formando assim uma lista de navegação com três cards de navegação que irão aceitar parâmetros diferentes que irão ser exibidos na tela inicial do app.
-
-
-struct HomeView: View { //criando a view HomeView que irá englobar as três instâncias de NavigationCard.
-    var body: some View { //definindo o corpo da view, ou seja, como ela será exibida na tela.
-        NavigationStack { //criando uma NavigationView para permitir a navegação entre views.
-            VStack(spacing: 20) { //criando uma pilha vertical (VStack) com espaçamento de 20 pontos entre os elementos.
-               
-                NavigationCard( //primeira instância do NavigationCard.
-                    title: "Gerenciamento de apps", //título do cartão de navegação.
-                    subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.", //subtítulo do cartão de navegação.
-                    icon: "app.fill", //ícone do SF Symbols representando um aplicativo.
-                    destination: Text("Gerenciamento de apps") //view destino que será exibida quando o cartão for tocado.
-                )
-               
-                NavigationCard( //segunda instância do NavigationCard.
-                    title: "Controle dos pais", //título do cartão de navegação.
-                    subtitle: "configurar restrições para crianças, bloquear conteúdo impróprio.", //subtítulo do cartão de navegação.
-                    icon: "person.2.fill", //ícone do SF Symbols representando controle dos pais.
-                    destination: Text("Controle dos pais") //view destino que será exibida quando o cartão for tocado.
-                )
-               
-                NavigationCard( //terceira instância do NavigationCard.
-                    title: "Privacidade e segurança", //título do cartão de navegação.
-                    subtitle: "gerenciar permissões de aplicativos, configurar VPN, ajustar configurações de localização.", //subtítulo do cartão de navegação.
-                    icon: "lock.shield.fill", //ícone do SF Symbols representando privacidade e segurança.
-                    destination: Text("Privacidade e segurança") //view destino que será exibida quando o cartão for tocado.
-                )
-               
-                Spacer() //adicionando um espaçador para empurrar os cartões para cima e deixar espaço vazio abaixo deles.
-            }
-            .navigationTitle("Configurações") //definindo o título da barra de navegação como "Configurações".
+struct TempoUso: Identifiable {
+    let id = UUID()
+    let app: String
+    let horas: Double
+}
+let dadosTempoUso = [
+    TempoUso(app: "Instagram", horas: 3.2),
+    TempoUso(app: "TikTok", horas: 2.7),
+    TempoUso(app: "Youtube", horas: 4.1),
+    TempoUso(app: "Mobile Legends", horas: 3.5)
+]
+struct GraficoTempoUso: View {
+    var body: some View {
+        Chart(dadosTempoUso) { item in
+            BarMark(
+                x: .value("App", item.app),
+                y: .value("Horas de Uso", item.horas)
+            )
+            .foregroundStyle(.blue.opacity(0.8))
         }
+        .chartYAxis {
+            AxisMarks(position: .leading)
+        }
+        .frame(height: 300)
+        .padding()
     }
 }
+        
+    
+//#Preview {
+//    GraficoTempoUso()
+//}
+struct HomeView: View { //criando a view HomeView que irá englobar as três instâncias de NavigationCard.
+    var body: some View {
+        //definindo o corpo da view, ou seja, como ela será exibida na tela.
+        
+      //  VStack{
+            
+            
+//            struct GraficoTempoUso: View {
+//                var body: some View {
+//                    Chart(dadosTempoUso) { item in
+//                        BarMark(
+//                            x: .value("App", item.app),
+//                            y: .value("Horas de Uso", item.horas)
+//                        )
+//                        .foregroundStyle(.blue.opacity(0.8))
+//                    }
+//                    .chartYAxis {
+//                        AxisMarks(position: .leading)
+//                    }
+//                    .frame(height: 300)
+//                    .padding()
+//                }
+//            }
+//                    
+//                
+//            #Preview {
+//                GraficoTempoUso()
+//            }
 
+            
+            
+            
+            NavigationStack { //criando uma NavigationView para permitir a navegação entre views.
+                VStack(spacing: 20) { //criando uma pilha vertical (VStack) com espaçamento de 20 pontos entre os elementos.
+                    
+                    NavigationCard( //primeira instância do NavigationCard.
+                        title: "Gerenciamento de apps", //título do cartão de navegação.
+                        subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.", //subtítulo do cartão de navegação.
+                        icon: "gear", //ícone do SF Symbols representando um aplicativo.
+                        destination: Text("Gerenciamento de apps") //view destino que será exibida quando o cartão for tocado.
+                    )
+                    
+                    NavigationCard( //segunda instância do NavigationCard.
+                        title: "Controle dos pais", //título do cartão de navegação.
+                        subtitle: "configurar restrições para crianças, bloquear conteúdo impróprio.", //subtítulo do cartão de navegação.
+                        icon: "person.2.fill", //ícone do SF Symbols representando controle dos pais.
+                        destination: Text("Controle dos pais") //view destino que será exibida quando o cartão for tocado.
+                    )
+                    
+                    NavigationCard( //terceira instância do NavigationCard.
+                        title: "Privacidade e segurança", //título do cartão de navegação.
+                        subtitle: "gerenciar permissões de aplicativos, configurar VPN, ajustar configurações de localização.", //subtítulo do cartão de navegação.
+                        icon: "lock.shield.fill", //ícone do SF Symbols representando privacidade e segurança.
+                        destination: Text("Privacidade e segurança") //view destino que será exibida quando o cartão for tocado.
+                    )
+                    
+                    Spacer() //adicionando um espaçador para empurrar os cartões para cima e deixar espaço vazio abaixo deles.
+                }
+                 //definindo o título da barra de navegação como "Configurações".
+            }
+        }
+    }
+//}
 
 // Passo 4: Criar uma visualização prévia para a HomeView para ver como ela ficará na tela.
 
@@ -125,7 +187,11 @@ struct HomeView: View { //criando a view HomeView que irá englobar as três ins
 //preview 2 EVIDENCIA !!!!
 struct HomeView_Previews: PreviewProvider { //estrutura de visualização prévia para a HomeView.
     static var previews: some View { //definindo o corpo da visualização prévia, ou seja, como iremos vê-la.
-        HomeView() //criando uma instância da HomeView para visualização prévia.
+        VStack{
+            GraficoTempoUso()
+            HomeView()
+            //criando uma instância da HomeView para visualização prévia.
+        }
     }
  
 }
