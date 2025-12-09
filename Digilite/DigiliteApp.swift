@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+/*@main
 struct DigiliteApp: App {
     var body: some Scene {
         WindowGroup {
@@ -15,3 +15,5 @@ struct DigiliteApp: App {
         }
     }
 }
+
+*/
