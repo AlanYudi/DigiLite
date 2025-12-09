@@ -81,30 +81,6 @@ struct NavigationCard<Destination: View>: View { //Criando uma view de navegaç�
 
 
 
-//Preview 1 EVIDENCIA !!!!
-struct NavigationCard_Previews: PreviewProvider { //estrutura de visualização prévia para ver como a view ficará na tela.
-    static var previews: some View { //aqui definimos o corpo da visualização prévia, ou seja, como iremos vê-la.
-        NavigationStack { //criando uma NavigationView para permitir a navegação entre views.
-            NavigationCard( //criando uma instância do NavigationCard com parâmetros de exemplo, ou seja, invocando a estrutura que criei acima.
-               
-                title: "Gerenciamento de apps", //título do cartão de navegação.
-
-
-                subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.", // subtítulo do cartão de navegação.
-
-
-                icon: "chevron.right", // ícone de seta para a direita do SF Symbols.
-
-
-                destination: Text("gerenciamento") //view destino que será exibida quando o cartão for tocado. Aqui é apenas um texto de exemplo.
-            )
-
-
-            .padding() //adicionando padding ao redor do cartão na visualização prévia.
-        }
-    }
-}
-
 
 // Passo 3: Criar uma VIEW que irá englobar as três instâncias de NavigationCard criadas, formando assim uma lista de navegação com três cards de navegação que irão aceitar parâmetros diferentes que irão ser exibidos na tela inicial do app.
 
