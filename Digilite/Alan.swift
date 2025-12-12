@@ -57,7 +57,6 @@ struct apps: Identifiable {
 
 
 struct AppList: View {
-    
     let appslist: [apps] = [
             apps(nome: "Instagram", descricao: "Rede social para fotos e vídeos", imagem: "camera"),
             apps(nome: "TikTok", descricao: "Vídeos curtos e divertidos", imagem: "play.rectangle"),
