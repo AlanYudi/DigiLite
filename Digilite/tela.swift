@@ -134,6 +134,13 @@ struct HomeView: View { //criando a view HomeView que irá englobar as três ins
                         destination: Text("Gerenciamento de apps") //view destino que será exibida quando o cartão for tocado.
                     )
                     
+                    NavigationCard(
+                        title: "Gerenciamento de apps",
+                        subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.",
+                        icon: "gear",
+                        destination: AppList()   // 👈 AGORA FUNCIONA
+                    )
+
                     NavigationCard( //segunda instância do NavigationCard.
                         title: "Controle dos pais", //título do cartão de navegação.
                         subtitle: "configurar restrições para crianças, bloquear conteúdo impróprio.", //subtítulo do cartão de navegação.
