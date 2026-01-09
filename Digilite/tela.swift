@@ -10,6 +10,7 @@ import SwiftUI //importando o framework SwiftUI para criar interfaces de usuári
 
 //Passo 1: Criar uma estrutura genérica que aceita parâmetros moldáveis, um molde, para reutilizar a view de navegação em diferentes partes do app.
 
+
 struct NavigationCard<Destination: View>: View { //Criando uma view de navegação reutilizável. , Destination significa o tipo da view destino. significa que o destino pode ser qualquer view SwiftUI.
    
     let title: String      //aqui teremos as propriedades que a view precisa para ser configurada.
@@ -126,6 +127,13 @@ struct HomeView: View { //criando a view HomeView que irá englobar as três ins
             NavigationStack { //criando uma NavigationView para permitir a navegação entre views.
                 VStack(spacing: 20) { //criando uma pilha vertical (VStack) com espaçamento de 20 pontos entre os elementos.
                     
+                    NavigationCard( //primeira instância do NavigationCard.
+                        title: "Gerenciamento de apps", //título do cartão de navegação.
+                        subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.", //subtítulo do cartão de navegação.
+                        icon: "gear", //ícone do SF Symbols representando um aplicativo.
+                        destination: Text("Gerenciamento de apps") //view destino que será exibida quando o cartão for tocado.
+                    )
+                    
                     NavigationCard(
                         title: "Gerenciamento de apps",
                         subtitle: "limitar o tempo de uso de um aplicativo, pôr uma senha,desativar as notificações.",
@@ -200,3 +208,5 @@ struct ConfigApp: App { //criando a estrutura principal do app chamada ConfigApp
 
 
 //---------------------------------- Digilite.swift ----------------------------------
+
+
